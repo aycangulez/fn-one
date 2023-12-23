@@ -42,4 +42,4 @@ async function createUser(email, password, firstName, lastName) {
 
 -   fn-one _awaits_ all passed functions, whether they return a promise or not.
 -   Rejected promises break the chain.
--   fnOne always returns a promise.
+-   fn-one always returns a promise.
