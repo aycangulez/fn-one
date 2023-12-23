@@ -18,7 +18,7 @@ Install as above and use the `fn-one.js` file found in the node_modules director
 
 ## Usage
 
-When chaining functions, each function's output is passed to the next function in line. If a function explicitly returns _false_ or throws an exception, the chain stops. With function chaining, there is less need for explicit control structures that clutter the code. They are hidden inside the functions where they belong.
+When chaining functions, each function's output is passed to the next function in line. If a function explicitly returns _false_ or throws an exception, the chain breaks. With function chaining, there is less need for explicit control structures such as if-else statements and loops that clutter the code. They are hidden inside lower-level functions where they belong.
 
 The example below shows how a user account creation process can be implemented by chaining functions:
 
@@ -38,4 +38,8 @@ async function createUser(email, password, firstName, lastName) {
 }
 ```
 
-**Important:** fn-one always returns a promise.
+**Things to keep in mind:**
+
+-   fn-one _awaits_ all passed functions, whether they return a promise or not.
+-   Rejected promises break the chain.
+-   fnOne always returns a promise.

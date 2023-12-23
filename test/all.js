@@ -31,6 +31,13 @@ describe('fn-one', function () {
         return createUser('used@local', 'valid-pass', 'Midori', 'Kobayashi').should.eventually.equal(false);
     });
 
+    it('should exit the chain when a promise is rejected', function () {
+        return chain(
+            () => Promise.reject('failed'),
+            () => 1
+        ).should.be.eventually.rejectedWith('failed');
+    });
+
     it('should continue the chain when an empty value is returned', function () {
         return chain(
             () => {},
